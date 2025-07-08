@@ -7,7 +7,6 @@ import {
   getClientXY,
   handelAutoScroll,
 } from "./SortableUtilityFun";
-import "./Sortable.css";
 import getClassNames from "../utilities/getClassnames";
 import useMobileDevice from "../utilities/useMobileDevice";
 import isTouchDevice from "../utilities/isTouchDevice";
