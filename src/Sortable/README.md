@@ -16,8 +16,8 @@ yarn add react-sortify-component
 
 ```tsx
 import React, { useState } from 'react';
-import Sortable, { sortableArray } from 'react-sortify-component';
-import 'react-sortify-component/dist/Sortable.css';
+import {Sortable, sortableArray } from 'react-sortify-component';
+import 'react-sortify-component/Sortable.css';
 
 const initialData = [
   { id: 1, content: <div>Item 1</div> },
