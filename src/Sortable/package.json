@@ -1,6 +1,6 @@
 {
   "name": "react-sortify-component",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "main": "dist/Sortable/index.js",
   "types": "dist/Sortable/index.d.ts",
   "keywords": [
