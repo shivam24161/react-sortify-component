@@ -1,8 +1,27 @@
 {
   "name": "react-sortify-component",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "main": "dist/Sortable/index.js",
   "types": "dist/Sortable/index.d.ts",
+  "keywords": [
+    "sortable",
+    "react-sortable",
+    "drag",
+    "drop",
+    "drag-and-drop",
+    "dnd",
+    "draggable",
+    "sortable-list",
+    "sortable-table",
+    "react-dnd",
+    "react-component",
+    "drag-drop",
+    "sortable-component",
+    "list-reorder",
+    "reorderable",
+    "sortable-items",
+    "react-draggable"
+  ],
   "files": [
     "dist",
     "Sortable.css"
