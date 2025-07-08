@@ -1,69 +1,52 @@
-# React + TypeScript + Vite
+# React Sortable Component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A customizable, touch-friendly sortable component for React.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install react-sortify-component
+# or
+yarn add react-sortify-component
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Usage
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```tsx
+import React, { useState } from 'react';
+import Sortable, { sortableArray } from 'react-sortify-component';
+import 'react-sortify-component/dist/Sortable.css';
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+const initialData = [
+  { id: 1, content: <div>Item 1</div> },
+  { id: 2, content: <div>Item 2</div> },
+  { id: 3, content: <div>Item 3</div> },
+];
+
+export default function Example() {
+  const [data, setData] = useState<sortableArray>(initialData);
+
+  return (
+    <Sortable
+      data={data}
+      onChange={setData}
+    />
+  );
+}
 ```
+
+## Props
+
+| Name               | Type                                | Default   | Description                                 |
+|--------------------|-------------------------------------|-----------|---------------------------------------------|
+| data               | `sortableArray`                     | required  | Array of items to sort                      |
+| onChange           | `(newData: sortableArray) => void`  | required  | Called when order changes                   |
+| animationDuration  | `number`                            | 300       | Animation duration in ms                    |
+| customClass        | `string`                            |           | Custom class for container                  |
+| isSortable         | `boolean`                           | true      | Enable/disable sorting                      |
+| dragHandle         | `React.ReactNode`                   |           | Custom drag handle                          |
+| sortableItemClass  | `string`                            |           | Custom class for sortable items             |
+
+## License
+
+MIT 
