@@ -2,6 +2,8 @@
 
 A customizable, touch-friendly sortable component for React.
 
+👉 **[Live Demo](https://react-sortify.netlify.app/)**
+
 ## Installation
 
 ```bash
