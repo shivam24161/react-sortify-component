@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Sortable, { sortableArray } from './Sortable/Sortable';
 import './App.css';
 
