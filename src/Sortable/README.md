@@ -49,6 +49,10 @@ export default function Example() {
 | dragHandle         | `React.ReactNode`                   |           | Custom drag handle                          |
 | sortableItemClass  | `string`                            |           | Custom class for sortable items             |
 
+## Need Help?
+
+If you face any issues or have questions, you're welcome to [raise an issue](https://github.com/shivam24161/react-sortify-component/issues) on GitHub.
+
 ## License
 
 MIT 

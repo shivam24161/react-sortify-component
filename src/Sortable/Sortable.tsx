@@ -12,6 +12,7 @@ import useMobileDevice from "../utilities/useMobileDevice";
 import isTouchDevice from "../utilities/isTouchDevice";
 import useBodyLock from "../utilities/UseBodyLock";
 import PortalComponent from "../utilities/PoratalComponent";
+import "./Sortable.css";
 
 export type sortableArray = {
   content: React.ReactNode;
