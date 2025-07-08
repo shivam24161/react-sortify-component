@@ -32,7 +32,7 @@ const listItems = [
 // Code examples
 const codeExamples = {
   basic: `import React, { useState } from 'react';
-import {Sortable, sortableArray } from 'your-package-name';
+import {Sortable, sortableArray } from 'react-sortify-component';
 
 const BasicExample = () => {
   const [data, setData] = useState<sortableArray>([
@@ -50,7 +50,7 @@ const BasicExample = () => {
 };`,
 
   withDragHandle: `import React, { useState } from 'react';
-import {Sortable, sortableArray } from 'your-package-name';
+import {Sortable, sortableArray } from 'react-sortify-component';
 
 const DragHandleExample = () => {
   const [data, setData] = useState<sortableArray>([
@@ -69,7 +69,7 @@ const DragHandleExample = () => {
 };`,
 
   customStyling: `import React, { useState } from 'react';
-import {Sortable, sortableArray } from 'your-package-name';
+import {Sortable, sortableArray } from 'react-sortify-component';
 
 const CustomStylingExample = () => {
   const [data, setData] = useState<sortableArray>([
@@ -90,7 +90,7 @@ const CustomStylingExample = () => {
 };`,
 
   disabled: `import React, { useState } from 'react';
-import {Sortable, sortableArray } from 'your-package-name';
+import {Sortable, sortableArray } from 'react-sortify-component';
 
 const DisabledExample = () => {
   const [data, setData] = useState<sortableArray>([
