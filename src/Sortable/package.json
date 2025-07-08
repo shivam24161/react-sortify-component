@@ -1,6 +1,6 @@
 {
   "name": "react-sortify-component",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": ["dist", "Sortable.css"],
@@ -11,5 +11,5 @@
   "author": "Shivam",
   "license": "MIT",
   "description": "A customizable sortable component for React",
-  "repository": "https://github.com/yourusername/react-sortify-component"
+  "repository": "https://github.com/shivam24161/react-sortify-component"
 } 
