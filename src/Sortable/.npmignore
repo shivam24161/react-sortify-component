@@ -1,0 +1,13 @@
+# Ignore everything except dist and essential files
+src/
+demo/
+test/
+App.tsx
+App.css
+*.config.js
+*.test.*
+*.spec.*
+node_modules/
+public/
+README.md
+vite.config.ts 
