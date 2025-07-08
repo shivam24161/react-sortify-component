@@ -6,7 +6,7 @@ export interface PortalComponentI {
   type?: "toast";
 }
 
-const PortalComponent: React.FC<PortalComponentI> = ({ children, type }) => {
+const PortalComponent: React.FC<PortalComponentI> = ({ children }) => {
   let container = document.getElementById("jul-portalContainer");
   if (!container)
     container = createContainer("jul-portalContainer", document.body);
