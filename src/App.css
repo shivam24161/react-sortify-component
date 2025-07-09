@@ -219,7 +219,7 @@
 .prop-row {
   display: grid;
   grid-template-columns: 120px 180px 90px 1fr;
-  gap: 0.5rem;
+  gap: 4rem;
   background: #f1f5fb;
   border-radius: 5px;
   padding: 0.5rem 0.7rem;
@@ -258,6 +258,11 @@
   background: #f1f5fb;
   border-radius: 5px;
   padding: 0.4rem 1rem;
+}
+.jul-sortable__item.inte-draghandel-story-item {
+   margin: 10px 0;
+   border: 1px solid #e5e7eb;
+   background-color: #f1f5fb;
 }
 
 /* Responsive */

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Sortable, { sortableArray } from './Sortable/Sortable';
+import { Menu } from "react-feather";
 import './App.css';
 
 // Sample data for different demos
@@ -44,7 +45,7 @@ const BasicExample = () => {
   return (
     <Sortable
       data={data}
-      onChange={(newData) =&gt; setData(newData)}
+      onChange={(newData) => setData(newData)}
     />;
   );
 };`,
@@ -62,8 +63,8 @@ const DragHandleExample = () => {
   return (
     <Sortable
       data={data}
-      onChange={(newData) =&gt; setData(newData)}
-      dragHandle={&lt;span&gt;⋮⋮&lt;/span&gt;}
+      onChange={(newData) => setData(newData)}
+      dragHandle={<span/>⋮⋮</span>}
     />;
   );
 };`,
@@ -81,7 +82,7 @@ const CustomStylingExample = () => {
   return (
     <Sortable
       data={data}
-      onChange={(newData) =&gt; setData(newData)}
+      onChange={(newData) => setData(newData)}
       customClass="my-custom-sortable"
       sortableItemClass="my-sortable-item"
       animationDuration={500}
@@ -102,16 +103,46 @@ const DisabledExample = () => {
   return (
     <Sortable
       data={data}
-      onChange={(newData) =&gt; setData(newData)}
+      onChange={(newData) => setData(newData)}
       isSortable={false}
     />;
   );
 };`
 };
+const itemsData = [
+  { id: 1, imageUrl: "https://picsum.photos/id/254/200/300" },
+  { id: 2, imageUrl: "https://picsum.photos/id/239/200/300" },
+  { id: 3, imageUrl: "https://picsum.photos/id/233/200/300" },
+  { id: 4, imageUrl: "https://picsum.photos/id/235/200/300" },
+  { id: 5, imageUrl: "https://picsum.photos/id/231/200/300" },
+  { id: 6, imageUrl: "https://picsum.photos/id/230/200/300" },
+  { id: 7, imageUrl: "https://picsum.photos/id/220/200/300" },
+  { id: 8, imageUrl: "https://picsum.photos/id/221/200/300" },
+  { id: 9, imageUrl: "https://picsum.photos/id/222/200/300" },
+  { id: 10, imageUrl: "https://picsum.photos/id/223/200/300" },
+  { id: 11, imageUrl: "https://picsum.photos/id/227/200/300" },
+  { id: 12, imageUrl: "https://picsum.photos/id/225/200/300" },
+  { id: 13, imageUrl: "https://picsum.photos/id/255/200/300" },
+  { id: 14, imageUrl: "https://picsum.photos/id/256/200/300" },
+  { id: 15, imageUrl: "https://picsum.photos/id/247/200/300" },
+  { id: 16, imageUrl: "https://picsum.photos/id/249/200/300" },
+  { id: 17, imageUrl: "https://picsum.photos/id/250/200/300" },
+  { id: 18, imageUrl: "https://picsum.photos/id/251/200/300" },
+  { id: 19, imageUrl: "https://picsum.photos/id/252/200/300" },
+  { id: 20, imageUrl: "https://picsum.photos/id/253/200/300" },
+  { id: 21, imageUrl: "https://picsum.photos/id/237/200/300" },
+];
+const handleData = itemsData.map((item:any) => ({
+  content: (
+    <p>{item.imageUrl}</p>
+  ),
+  id: item.id,
+}));
 
 function App() {
   const [activeTab, setActiveTab] = useState('demo');
   const [activeDemo, setActiveDemo] = useState('basic');
+  const [data, setData] = useState<sortableArray>(handleData);
 
   // State for different demos
   const [imageData, setImageData] = useState<sortableArray>(
@@ -139,19 +170,7 @@ function App() {
       id: item.id
     }))
   );
-
-  const [dragHandleData, setDragHandleData] = useState<sortableArray>(
-    cardItems.slice(0, 3).map(item => ({
-      content: (
-        <div className="demo-card-with-handle">
-          <h3>{item.title}</h3>
-          <p>{item.description}</p>
-        </div>
-      ),
-      id: item.id
-    }))
-  );
-
+  
   const renderDemo = () => {
     switch (activeDemo) {
       case 'basic':
@@ -167,7 +186,7 @@ function App() {
             </div>
           </div>
         );
-      
+
       case 'images':
         return (
           <div className="demo-section">
@@ -182,7 +201,7 @@ function App() {
             </div>
           </div>
         );
-      
+
       case 'cards':
         return (
           <div className="demo-section">
@@ -197,7 +216,7 @@ function App() {
             </div>
           </div>
         );
-      
+
       case 'dragHandle':
         return (
           <div className="demo-section">
@@ -205,15 +224,17 @@ function App() {
             <p>Only drag using the handle icon:</p>
             <div className="demo-container">
               <Sortable
-                data={dragHandleData}
-                onChange={(newData) => setDragHandleData(newData)}
-                dragHandle={<span className="drag-handle">⋮⋮</span>}
-                customClass="handle-sortable"
+                data={data}
+                onChange={(newArr) => setData(newArr)}
+                animationDuration={300}
+                customClass="sortable-with-drag-handle"
+                dragHandle={<Menu size="24" color="#1c2433" />}
+                sortableItemClass="inte-draghandel-story-item"
               />
             </div>
           </div>
         );
-      
+
       case 'disabled':
         return (
           <div className="demo-section">
@@ -228,7 +249,7 @@ function App() {
             </div>
           </div>
         );
-      
+
       default:
         return null;
     }
@@ -240,7 +261,8 @@ function App() {
       images: codeExamples.basic,
       cards: codeExamples.basic,
       dragHandle: codeExamples.withDragHandle,
-      disabled: codeExamples.disabled
+      disabled: codeExamples.disabled,
+      customStyling: codeExamples.customStyling
     };
 
     return (
@@ -261,20 +283,20 @@ function App() {
       </header>
 
       <nav className="app-nav">
-        <button 
-          className={activeTab === 'demo' ? 'active' : ''} 
+        <button
+          className={activeTab === 'demo' ? 'active' : ''}
           onClick={() => setActiveTab('demo')}
         >
           Demo
         </button>
-        <button 
-          className={activeTab === 'code' ? 'active' : ''} 
+        <button
+          className={activeTab === 'code' ? 'active' : ''}
           onClick={() => setActiveTab('code')}
         >
           Code Examples
         </button>
-        <button 
-          className={activeTab === 'docs' ? 'active' : ''} 
+        <button
+          className={activeTab === 'docs' ? 'active' : ''}
           onClick={() => setActiveTab('docs')}
         >
           Documentation
@@ -285,32 +307,32 @@ function App() {
         {activeTab === 'demo' && (
           <div className="demo-tab">
             <div className="demo-nav">
-              <button 
-                className={activeDemo === 'basic' ? 'active' : ''} 
+              <button
+                className={activeDemo === 'basic' ? 'active' : ''}
                 onClick={() => setActiveDemo('basic')}
               >
                 Basic
               </button>
-              <button 
-                className={activeDemo === 'images' ? 'active' : ''} 
+              <button
+                className={activeDemo === 'images' ? 'active' : ''}
                 onClick={() => setActiveDemo('images')}
               >
                 Images
               </button>
-              <button 
-                className={activeDemo === 'cards' ? 'active' : ''} 
+              <button
+                className={activeDemo === 'cards' ? 'active' : ''}
                 onClick={() => setActiveDemo('cards')}
               >
                 Cards
               </button>
-              <button 
-                className={activeDemo === 'dragHandle' ? 'active' : ''} 
+              <button
+                className={activeDemo === 'dragHandle' ? 'active' : ''}
                 onClick={() => setActiveDemo('dragHandle')}
               >
                 Drag Handle
               </button>
-              <button 
-                className={activeDemo === 'disabled' ? 'active' : ''} 
+              <button
+                className={activeDemo === 'disabled' ? 'active' : ''}
                 onClick={() => setActiveDemo('disabled')}
               >
                 Disabled
@@ -323,26 +345,26 @@ function App() {
         {activeTab === 'code' && (
           <div className="code-tab">
             <div className="code-nav">
-              <button 
-                className={activeDemo === 'basic' ? 'active' : ''} 
+              <button
+                className={activeDemo === 'basic' ? 'active' : ''}
                 onClick={() => setActiveDemo('basic')}
               >
                 Basic Usage
               </button>
-              <button 
-                className={activeDemo === 'dragHandle' ? 'active' : ''} 
+              <button
+                className={activeDemo === 'dragHandle' ? 'active' : ''}
                 onClick={() => setActiveDemo('dragHandle')}
               >
                 With Drag Handle
               </button>
-              <button 
-                className={activeDemo === 'customStyling' ? 'active' : ''} 
+              <button
+                className={activeDemo === 'customStyling' ? 'active' : ''}
                 onClick={() => setActiveDemo('customStyling')}
               >
                 Custom Styling
               </button>
-              <button 
-                className={activeDemo === 'disabled' ? 'active' : ''} 
+              <button
+                className={activeDemo === 'disabled' ? 'active' : ''}
                 onClick={() => setActiveDemo('disabled')}
               >
                 Disabled
@@ -355,7 +377,7 @@ function App() {
         {activeTab === 'docs' && (
           <div className="docs-tab">
             <h2>API Documentation</h2>
-            
+
             <section className="api-section">
               <h3>Props</h3>
               <div className="prop-table">
