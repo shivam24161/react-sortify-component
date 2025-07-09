@@ -170,19 +170,7 @@ function App() {
       id: item.id
     }))
   );
-
-  const [dragHandleData, setDragHandleData] = useState<sortableArray>(
-    cardItems.slice(0, 3).map(item => ({
-      content: (
-        <div className="demo-card-with-handle">
-          <h3>{item.title}</h3>
-          <p>{item.description}</p>
-        </div>
-      ),
-      id: item.id
-    }))
-  );
-
+  
   const renderDemo = () => {
     switch (activeDemo) {
       case 'basic':
